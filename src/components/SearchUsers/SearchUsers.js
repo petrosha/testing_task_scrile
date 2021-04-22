@@ -4,6 +4,10 @@ import SearchBox from './subcomponents/searchBox.js'
 import DropBox from './subcomponents/dropBox.js'
 import styles from './SearchUsers.module.css'
 
+const userApi="https://jsonplaceholder.typicode.com/users"
+const picsApi="https://jsonplaceholder.typicode.com/photos"
+
+
 let SearchUsers = () => {
   let [searchValue,setSearchValue]=useState("");
   let [changed,setChanged]=useState(false);
@@ -12,7 +16,6 @@ let SearchUsers = () => {
   let [highlightedIdx,setHighlightedIdx]=useState(-1);
 
   const searchValueClb = (e)=>{
-    console.log("value: ", e.target.value);
     setSearchValue(e.target.value);
     setChanged(true);
     setSelected(false);
@@ -32,12 +35,10 @@ let SearchUsers = () => {
   }
 
   const highlightOnByKey = (e)=>{
-    console.log("Code: ", e.keyCode);
     if(usersList.length>0){
       let idx=highlightedIdx;
       if(e.keyCode === 38) idx--;
       if(e.keyCode === 40) idx++;
-      console.log("IDX: ", idx);
       if(idx >= -1 && idx < usersList.length) {
         setHighlightedIdx(idx)
         if(e.keyCode === 13) {
@@ -50,9 +51,6 @@ let SearchUsers = () => {
   }
   
   const getData = async () => { 
-    const userApi="https://jsonplaceholder.typicode.com/users"
-    const picsApi="https://jsonplaceholder.typicode.com/photos"
-
     try{
       let usersReply = await axios
                               .get(userApi)

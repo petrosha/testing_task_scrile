@@ -4,7 +4,6 @@
     height: 48px;
 
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     flex-shrink: 0;
@@ -30,9 +29,6 @@
 }
 
 .userName {
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 19px;
     padding: 0px;
@@ -40,9 +36,6 @@
 }
 
 .userLogin {
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 12px;
     line-height: 16px;
     color: #98999A;
